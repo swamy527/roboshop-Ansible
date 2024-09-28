@@ -54,6 +54,6 @@
       when: product_count.stdout == 0
     - name: start the service
       ansible.builtin.service:
-        name: mongod
+        name: catalogue
         state: started
         enabled: true
