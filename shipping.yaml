@@ -32,14 +32,14 @@
       ansible.builtin.command: mvn clean package
       args:
         chdir: /app
-    - name: dependencies install
+    - name: renaming package
       ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
       args:
         chdir: /app
     - name: daemon reload
       ansible.builtin.systemd_service:
         daemon_reload: true
-    - name: dependencies install
+    - name: installing mysql
       ansible.builtin.command: dnf install mysql -y
     - name: checking existing data in mysql
       ansible.builtin.command: mysql -h mysql.beesh.life -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
