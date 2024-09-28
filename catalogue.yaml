@@ -52,8 +52,8 @@
     - name: checking content in the server
       ansible.builtin.command: mongo --host 3.95.34.160 </app/schema/catalogue.js
       when: product_count.stdout == 0
-    - name: daemon reload and start
-      ansible.builtin.systemd_service:
+    - name: start the service
+      ansible.builtin.service:
         name: mongod
         state: started
         enabled: true
