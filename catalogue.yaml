@@ -21,9 +21,9 @@
         dest: /tmp
     - name: unzipping file
       ansible.builtin.unarchive:
-      src: /tmp/catalogue.zip
-      dest: /app
-      remote_src: yes
+        src: /tmp/catalogue.zip
+        dest: /app
+        remote_src: yes
     # - name: dependecies install
     #   ansible.builtin.command: npm install
     #   args:
