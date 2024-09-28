@@ -39,6 +39,10 @@
     - name: daemon reload
       ansible.builtin.systemd_service:
         daemon_reload: true
+    - name: copy catalogue file
+      ansible.builtin.copy:
+        src: shipping.service
+        dest: /etc/systemd/system
     - name: installing mysql
       ansible.builtin.command: dnf install mysql -y
     - name: checking existing data in mysql
