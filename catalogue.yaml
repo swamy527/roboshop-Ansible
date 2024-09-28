@@ -18,8 +18,8 @@
     - name: download application
       ansible.builtin.get_url:
         url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-        dest: /tmp
-    - name: unzippin file
+        dest: /tmp/catalogue.zip
+    - name: unzipping file
       ansible.builtin.unarchive:
       src: /tmp/catalogue.zip
       dest: /app
