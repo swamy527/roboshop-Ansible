@@ -45,7 +45,7 @@
       ansible.builtin.command: mysql -h mysql.beesh.life -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
       register: schema
     - name: cities data
-      ansible.builtin.command: mysql -h mysql.beesh.life -uroot -p{{mysql_password}} < /app/schema/shipping.sql
+      ansible.builtin.shell: mysql -h mysql.beesh.life -uroot -p{{mysql_password}} < /app/schema/shipping.sql
       when: schema.stdout == "0"
     - name: start the service
       ansible.builtin.service:
