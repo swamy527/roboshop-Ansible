@@ -35,7 +35,6 @@
     - name: daemon reload and start
       ansible.builtin.systemd_service:
         daemon_reload: true
-        enabled: true
     - name: copy mongo repo file
       ansible.builtin.copy:
         src: mongo.repo
@@ -54,3 +53,4 @@
       ansible.builtin.systemd_service:
         name: mongod
         state: started
+        enabled: true
