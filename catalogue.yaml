@@ -51,7 +51,7 @@
         msg: "Here is te value: {{product_count}}"
     - name: loading schema
       ansible.builtin.command: mongo --host 3.95.34.160 </app/schema/catalogue.js
-      when: product_count.stdout == 0
+      when: product_count.stdout == "0"
     - name: start the service
       ansible.builtin.service:
         name: catalogue
