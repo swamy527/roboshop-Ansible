@@ -4,7 +4,7 @@
   tasks:
     - name: copy mongo repo fiel
       ansible.builtin.copy:
-        src: mongo.rep
+        src: mongo.repo
         dest: /etc/yum.repos.d
     - name: installing mongodb
       ansible.builtin.package:
