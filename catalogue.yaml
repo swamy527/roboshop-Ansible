@@ -44,13 +44,13 @@
         name: mongodb-org-shell
         state: present
     - name: checking content in the server
-      ansible.builtin.command: mongo --host 52.205.250.55 --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+      ansible.builtin.command: mongo --host 3.95.34.160 --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
       register: product_count
     - name: print value
       ansible.builtin.debug:
         msg: "Here is te value: {{product_count}}"
     - name: checking content in the server
-      ansible.builtin.command: mongo --host 52.205.250.55 </app/schema/catalogue.js
+      ansible.builtin.command: mongo --host 3.95.34.160 </app/schema/catalogue.js
       when: product_count.stdout == 0
     - name: daemon reload and start
       ansible.builtin.systemd_service:
