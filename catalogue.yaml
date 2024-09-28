@@ -46,6 +46,9 @@
     - name: checking content in the server
       ansible.builtin.command: mongo --host 52.205.250.55 --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
       register: product_count
+    - name: print value
+      ansible.builtin.debug:
+        msg: "Here is te value: {{product_count}}"
     - name: checking content in the server
       ansible.builtin.command: mongo --host 52.205.250.55 </app/schema/catalogue.js
       when: product_count.stdout == 0
