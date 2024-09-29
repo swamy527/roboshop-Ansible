@@ -30,7 +30,7 @@
         remote_src: yes
     - name: copy roboshop.conf file
       ansible.builtin.copy:
-        path: roboshop.conf
+        src: roboshop.conf
         dest: /etc/nginx/default.d
     - name: start the service
       ansible.builtin.service:
